@@ -1,2 +1,2 @@
 # djangoapplication
-##**simple django application with mysql and bootstrap**
+## **simple django application with mysql and bootstrap**
