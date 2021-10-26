@@ -1,0 +1,126 @@
+{% extends 'basef.html' %}
+{% load meus_filtros %}
+
+{% block conteudo %}
+<div class="alert alert-primary" role="alert">
+     <div class="row no-gutters">
+          <div class="col-6 col-md-4">
+             <div class="spinner-grow text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+             </div>
+          </div>
+         <div class="col-12 col-sm-6 col-md-8">
+             <h4>Lista</h4>
+         </div>
+     </div>
+</div>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+         {{ form_tarefa.unidade.errors}}
+            <label>Unidade:</label>
+         {{ form_tarefa.unidade|addclass:'form-control'}}
+    </div>
+    <div class="form-group">
+         {{ form_tarefa.fornecedor.errors}}
+            <label>Fornecedor:</label>
+         {{ form_tarefa.fornecedor|addclass:'form-control'}}
+    </div>
+    <div class="form-group">
+         {{ form_tarefa.produto.errors}}
+            <label>Produto:</label>
+         {{ form_tarefa.produto|addclass:'form-control'}}
+    </div>
+    <div class="form-group">
+         {{ form_tarefa.codigo_barra.errors}}
+            <label>Código de Barras:</label>
+         {{ form_tarefa.codigo_barra|addclass:'form-control'}}
+    </div>
+    <div class="form-group">
+         {{ form_tarefa.data_fabricacao.errors}}
+            <label>Data de Fabricacao (mês/data/ano):</label>
+         {{ form_tarefa.data_fabricacao|addclass:'form-control' }}
+    </div>
+    <div class="form-group">
+         {{ form_tarefa.data_validade.errors}}
+            <label>Data de Validade (mês/data/ano):</label>
+         {{ form_tarefa.data_validade|addclass:'form-control'}}
+    </div>
+    <div class="form-group">
+         {{ form_tarefa.custo_unidade.errors}}
+            <label>Custo/Unidade</label>
+         {{ form_tarefa.custo_unidade|addclass:'form-control'}}
+    </div>
+    <div class="form-group">
+         {{ form_tarefa.quant_compra.errors}}
+            <label>Quantidade/compra:</label>
+         {{ form_tarefa.quant_compra|addclass:'form-control'}}
+    </div>
+    <div class="form-group">
+         {{ form_tarefa.preco_venda.errors}}
+            <label>Preco de Venda/unidade:</label>
+         {{ form_tarefa.preco_venda |addclass:'form-control'}}
+    </div>
+    <div class="form-group">
+         {{ form_tarefa.quant_venda.errors}}
+            <label>Quantidade/venda:</label>
+         {{ form_tarefa.quant_venda|addclass:'form-control'}}
+    </div>
+    <div class="form-group">
+         {{ form_tarefa.perecibilidade.errors}}
+            <label>Perecibilidade:</label>
+         {{ form_tarefa.perecibilidade|addclass:'form-control'}}
+    </div>
+    <div class="form-group">
+         {{ form_tarefa.foto_produto.errors}}
+            <label>Foto do Produto:</label>
+         {{ form_tarefa.foto_produto|addclass:'form-control'}}
+    </div>
+    <div>
+        <input type="submit" class="btn btn-primary btn-sm" value="Enviar">
+    </div>
+</form>
+{% endblock conteudo %}
+{% block conteudoright %}
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+<div class="card-deck">
+    <div class="card bg-primary">
+        <div class="card-title">
+        <h5 class="card-title">Mercado</h5>
+        <p class="card-text">Aqui serão abordados os principas resultados empiricos sobre dados econômicos de relevância. </p>
+        <a href="{% url 'grid_plot' %}" class="btn btn-primary btn-sm" target="_self">Resultados</a>
+        </div>
+    </div>
+</div>
+<br>
+<div class="card-deck">
+    <div class="card bg-primary">
+        <div class="card-title">
+        <h5 class="card-title">Produtos</h5>
+        <p class="card-text">São aqui colocados em disponibilidade, alguns dados, brutos e processados, tidos como exemplo em nosso trabalho</p>
+        <a href="#" class="btn btn-primary btn-sm">Veja </a>
+        </div>
+    </div>
+</div>
+<br>
+<div class="card-deck">
+    <div class="card bg-primary">
+        <div class="card-title">
+        <h5 class="card-title">Serviços</h5>
+        <p class="card-text">Aqui são colocados à disponibilidade nossos serviços</p>
+        <a href="{% url 'logar_usuario' %}" class="btn btn-primary btn-sm">Contate-nos</a>
+        </div>
+    </div>
+</div>
+<br>
+<div class="card-deck">
+        <p>Somos fadados às necessidades de contrapartida, amiúde, o quê, que faz da união voto de desvantagem.</p>
+        <footer class="blockquote-footer">
+            <small class="text-muted">
+            Objeto de pensamento: <cite title="Source Title">Nazareth, Luis</cite>
+            </small>
+        </footer>
+</div>
+</div>
+{% endblock conteudoright %}

@@ -1,0 +1,58 @@
+{% extends 'baseg.html' %}
+
+{% block conteudo %}
+<div class="alert alert-primary" role="alert">
+     <div class="row no-gutters">
+          <div class="col-6 col-md-4">
+             <div class="spinner-grow text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+             </div>
+          </div>
+         <div class="col-12 col-sm-6 col-md-8">
+             <h4>Resultados</h4>
+         </div>
+     </div>
+</div>
+    {{ div|safe }}
+    {{script|safe}}
+{% endblock conteudo %}
+
+{% block conteudoright %}
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="card-deck">
+        <div class="card bg-primary">
+            <div class="card-title">
+                <p class="card-text">Aqui serão abordados os principas resultados empiricos sobre dados econômicos de relevância. </p>
+                <a href="https://exame.com/" class="btn btn-primary btn-sm" target="_self">Exame</a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="card-deck">
+        <div class="card bg-primary">
+            <div class="card-title">
+                <p class="card-text">São aqui colocados em disponibilidade, alguns dados, brutos e processados, tidos como exemplo em nosso trabalho</p>
+                <a href="#" class="btn btn-primary btn-sm">Veja </a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="card-deck">
+        <div class="card bg-primary">
+            <div class="card-title">
+                <p class="card-text">Aqui são colocados à disponibilidade nossos serviços</p>
+                <a href="{% url 'logar_usuario' %}" class="btn btn-primary btn-sm">Fale Comigo</a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="card-deck">
+        <p>Somos fadados às necessidades de contrapartida, amiúde, o quê, que faz da união voto de desvantagem.</p>
+        <footer class="blockquote-footer">
+            <small class="text-muted">
+            Objeto de pensamento: <cite title="Source Title">Nazareth, Luis</cite>
+            </small>
+        </footer>
+    </div>
+</div>
+{% endblock conteudoright%}

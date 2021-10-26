@@ -1,0 +1,49 @@
+{% extends 'bases.html' %}
+{% load meus_filtros %}
+
+{% block conteudo %}
+<h1>Search</h1>
+<form method="post" action="/search/">
+  {% csrf_token %}
+  <div class="form-group">
+    <div class="col-lg-5">
+      <input type="text" name="srh" class="form-control" placeholder="Entre com Fornecedor ou Produto">
+      <div>
+        <label class="col-lg-2">
+          <button type="submit" class="bnt bnt-danger">Search</button>
+        </label>
+      </div>
+    </div>
+  </div>
+</form>
+<hr>
+<br>
+<div>
+  {% if messages %}
+    <ul class="messages">
+      {% for k in messages %}
+      <li style="color: red">{{ k }}</li>
+      {%  endfor %}
+    </ul>
+  {% endif %}
+</div>
+<br>
+<div style="color: blue">
+  {% if sr %}
+    {% for k in sr %}
+  <table border="0px" width="300px">
+    <tr>
+      <td>Fornecedor</td>
+      <td>{{ k.fornecedor }}</td>
+    </tr>
+    <tr>
+        <td>Produto</td>
+        <td>{{ k.produto }}</td>
+    </tr>
+  </table>
+{%  endfor %}
+  {% endif %}
+</div>
+
+
+{% endblock conteudo %}

@@ -1,0 +1,103 @@
+{% extends 'basem.html' %}
+
+{% block conteudo %}
+<div class="alert alert-primary" role="alert">
+     <div class="row no-gutters">
+          <div class="col-6 col-md-4">
+             <div class="spinner-grow text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+             </div>
+          </div>
+         <div class="col-12 col-sm-6 col-md-8">
+             <h4>Elementos</h4>
+         </div>
+     </div>
+</div>
+
+
+{% for tarefa in tarefas%}
+
+<div class="card mb-3">
+    <div class="card-header">
+        {{ tarefa.get_perecibilidade_display }}
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-6 col-sm-4">
+                <div class="card-image">
+                    <img src="{{ tarefa.foto_produto.url }}" class="img-responsive" style="width: 30%; float: left; margin-right: 10px;" />
+                </div>
+            </div>
+            <div class="col-6 col-sm-4">
+                <h5 class="card-title">{{ tarefa.produto }}</h5>
+                <p class="card-text">{{ tarefa.data_validade }}</p>
+            </div>
+        </div>
+
+        <hr>
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card-footer">
+                <a href="{% url 'editar_tarefa' tarefa.id %}"><button type="button" class="btn btn-primary btn-sm">Editar</button></a>
+                <a href="{% url 'remover_tarefa' tarefa.id %}"><button type="button" class="btn btn-primary btn-sm">Remover</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<div class="row">
+    <div class="col-auto mr-auto">
+        <a href="{% url 'cadastrar_tarefa' %}"><input type="button" class="btn btn-primary btn-sm" value="Cadastrar Tarefa"></a>
+    </div>
+    <div class="col-auto">
+        <a href="{% url 'listar_tarefas' %}"><input type="button" class="btn btn-primary btn-sm" value="Go to Up"></a>
+    </div>
+</div>
+{% endblock conteudo%}
+
+{% block conteudoright %}
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="card-deck">
+        <div class="card bg-primary">
+            <div class="card-title">
+                <h5 class="card-title">Mercado</h5>
+                <p class="card-text">Aqui serão abordados os principas resultados empiricos sobre dados econômicos de relevância. </p>
+                <a href="{% url 'grid_plot' %}" class="btn btn-primary btn-sm" target="_self">Resultados</a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="card-deck">
+        <div class="card bg-primary">
+            <div class="card-title">
+                <h5 class="card-title">Produtos</h5>
+                <p class="card-text">São aqui colocados em disponibilidade, alguns dados, brutos e processados, tidos como exemplo em nosso trabalho</p>
+                <a href="#" class="btn btn-primary btn-sm">Veja </a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="card-deck">
+        <div class="card bg-primary">
+            <div class="card-title">
+                <h5 class="card-title">Serviços</h5>
+                <p class="card-text">Aqui são colocados à disponibilidade nossos serviços</p>
+                <a href="{% url 'logar_usuario' %}" class="btn btn-primary btn-sm">Contate-nos</a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="card-deck">
+        <p>Somos fadados às necessidades de contrapartida, amiúde, o quê, que faz da união voto de desvantagem.</p>
+        <footer class="blockquote-footer">
+            <small class="text-muted">
+            Objeto de pensamento: <cite title="Source Title">Nazareth, Luis</cite>
+            </small>
+        </footer>
+    </div>
+</div>
+{% endblock conteudoright %}
+
+
+
